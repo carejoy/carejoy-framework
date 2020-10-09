@@ -1,0 +1,64 @@
+package net.breezeware.carejoy.core.dto;
+
+import java.time.LocalDate;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * DTO to create a new patient in the patient registry. This will be used to
+ * submit a form.
+ * 
+ */
+@ToString
+public class AddPatientDto {
+
+    @NotNull
+    @Size(min = 1, max = 90, message = "First Name is required. Max length is 90 characters.")
+    @Getter
+    @Setter
+    private String firstName;
+
+    @NotNull
+    @Size(min = 1, max = 90, message = "Last Name is required. Max length is 90 characters.")
+    @Getter
+    @Setter
+    private String lastName;
+
+    @Getter
+    @Setter
+    private String middleInitial;
+
+    /**
+     * Gender - Male/Female
+     */
+    @NotNull(message = "Gender is required")
+    @Size(min = 1, max = 1, message = "Gender is required.")
+    @Getter
+    @Setter
+    private String gender;
+
+    /**
+     * Date of Birth
+     */
+    @Getter
+    @Setter
+    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    private LocalDate dateOfBirth;
+
+    @Size(min = 0, max = 11, message = "SSN value's maximum length is 11 charactes.")
+    @Getter
+    @Setter
+    private String ssn;
+
+    @Getter
+    @Setter
+    private String email;
+
+}

@@ -1,0 +1,1 @@
+2.16.840.1.113883.3.600.2012|Blood Pressure Measured|Latest|55284-4|Blood pressure systolic and diastolic|LOINC|2.63|2.16.840.1.113883.6.1|(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )

@@ -1,0 +1,92 @@
+package net.breezeware.carejoy.questionnaire.service.impl;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.breezeware.carejoy.questionnaire.service.api.TohuService;
+
+import org.drools.core.runtime.help.impl.XStreamXML;
+import org.kie.api.runtime.ExecutionResults;
+import org.kie.internal.runtime.StatefulKnowledgeSession;
+import org.kie.server.api.marshalling.MarshallingFormat;
+import org.kie.server.api.model.ServiceResponse;
+import org.kie.server.client.KieServicesClient;
+import org.kie.server.client.KieServicesConfiguration;
+import org.kie.server.client.KieServicesFactory;
+import org.kie.server.client.RuleServicesClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
+import com.thoughtworks.xstream.XStream;
+
+/**
+ * Execute TOHU questionnaire (DROOLS KBs) stored in a remote KIE Execution
+ * Server.
+ * 
+ * @author karthik
+ *
+ */
+@Service
+public class TohuServiceKieServerImpl implements TohuService {
+
+    Logger logger = LoggerFactory.getLogger(TohuServiceKieServerImpl.class);
+
+    public String execute(HttpServletRequest request, HttpServletResponse response, String sessionId, String xmlFact)
+            throws IOException {
+        logger.info("Entering execute(). sessionId = '{}'. xmlFact = '{}'.", sessionId, xmlFact);
+
+        // Create XStream
+        XStream xstream = XStreamXML.newXStreamMarshaller(new XStream());
+
+        KieServicesConfiguration config = KieServicesFactory.newRestConfiguration(
+                "http://carejoyplatform.com/kie-server/services/rest/server", "kieserver", "kieserver1!");
+        Map<String, String> headers = new HashMap<String, String>();
+        headers.put("Content-type", "application/xml");
+        headers.put("X-KIE-ContentType", "XSTREAM");
+        config.setHeaders(headers);
+        config.setMarshallingFormat(MarshallingFormat.XSTREAM);
+
+        KieServicesClient client = KieServicesFactory.newKieServicesClient(config);
+        RuleServicesClient ruleClient = client.getServicesClient(RuleServicesClient.class);
+
+        ServiceResponse<ExecutionResults> serverResponse = ruleClient.executeCommandsWithResults("Carejoy", xmlFact);
+        logger.info("KIE Server response. Message = '{}', Result = '{}'.", serverResponse.getMsg(),
+                serverResponse.getResult());
+
+        String xmlResult = xstream.toXML(serverResponse.getResult());
+
+        logger.info("Leaving execute(). xmlResult = '{}'.", xmlResult);
+        return xmlResult;
+    }
+
+    /**
+     * Returns the current knowledge session.
+     * 
+     * @return
+     */
+    public StatefulKnowledgeSession getKnowledgeSession(HttpServletRequest request) {
+        // return (StatefulKnowledgeSession)
+        // request.getSession().getAttribute(KNOWLEDGE_SESSION);
+
+        // FIXME: knowledge sessions are not handled in this TOHU service
+        // implementation, returning null.
+        return null;
+    }
+    
+    /**
+     * Removes the knowledge session from the HTTP session.
+     * 
+     */
+    public void removeKnowledgeSession(HttpServletRequest request) {
+        // FIXME: knowledge sessions are not handled in this TOHU service
+        // implementation, returning null.
+        
+        return null;
+    }
+}

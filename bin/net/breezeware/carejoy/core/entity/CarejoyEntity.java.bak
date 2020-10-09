@@ -1,0 +1,110 @@
+package net.breezeware.carejoy.core.entity;
+
+import java.io.Serializable;
+import java.util.Calendar;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.SequenceGenerator;
+
+import com.google.gson.Gson;
+
+@MappedSuperclass
+public class CarejoyEntity implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen")
+    @SequenceGenerator(name = "seq_gen", sequenceName = "carejoy_entity_seq", allocationSize = 1)
+    private long id;
+
+    @Column(name = "carejoy_id")
+    private String carejoyId;
+
+    @Column(name = "is_external_entity")
+    private boolean isExternalEntity;
+
+    @Column(name = "entity_source")
+    private String entitySource;
+
+    @Column(name = "source_id")
+    private String sourceId;
+
+    @Column(name = "created_date")
+    private Calendar createdDate;
+
+    @Column(name = "updated_date")
+    private Calendar updatedDate;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getCarejoyId() {
+        return carejoyId;
+    }
+
+    public void setCarejoyId(String carejoyId) {
+        this.carejoyId = carejoyId;
+    }
+
+    public boolean isExternalEntity() {
+        return isExternalEntity;
+    }
+
+    public void setExternalEntity(boolean isExternalEntity) {
+        this.isExternalEntity = isExternalEntity;
+    }
+
+    public String getEntitySource() {
+        return entitySource;
+    }
+
+    public void setEntitySource(String entitySource) {
+        this.entitySource = entitySource;
+    }
+
+    public String getSourceId() {
+        return sourceId;
+    }
+
+    public void setSourceId(String sourceId) {
+        this.sourceId = sourceId;
+    }
+
+    public Calendar getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Calendar createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Calendar getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Calendar updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
+}

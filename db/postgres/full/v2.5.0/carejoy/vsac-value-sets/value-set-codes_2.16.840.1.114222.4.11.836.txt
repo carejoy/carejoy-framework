@@ -1,0 +1,6 @@
+2.16.840.1.114222.4.11.836|Race|Latest|1002-5|American Indian or Alaska Native|CDCREC|1.2|2.16.840.1.113883.6.238|(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )
+2.16.840.1.114222.4.11.836|Race|Latest|2028-9|Asian|CDCREC|1.2|2.16.840.1.113883.6.238|(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )
+2.16.840.1.114222.4.11.836|Race|Latest|2054-5|Black or African American|CDCREC|1.2|2.16.840.1.113883.6.238|(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )
+2.16.840.1.114222.4.11.836|Race|Latest|2076-8|Native Hawaiian or Other Pacific Islander|CDCREC|1.2|2.16.840.1.113883.6.238|(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )
+2.16.840.1.114222.4.11.836|Race|Latest|2106-3|White|CDCREC|1.2|2.16.840.1.113883.6.238|(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )
+2.16.840.1.114222.4.11.836|Race|Latest|2131-1|Other Race|CDCREC|1.2|2.16.840.1.113883.6.238|(Clinical Focus: ),(Data Element Scope: ),(Inclusion Criteria: ),(Exclusion Criteria: )

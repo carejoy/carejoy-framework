@@ -1,0 +1,23 @@
+package net.breezeware.carejoy.careplanmanagement.service.api;
+
+import java.util.List;
+
+import net.breezeware.carejoy.careplanmanagement.dto.PatientPlanDefinitionDto;
+import net.breezeware.carejoy.careplanmanagement.entity.PatientPlanDefinition;
+import net.breezeware.carejoy.careplanmanagement.entity.PlanDefinition;
+
+public interface PlanDefinitionService {
+
+	List<PlanDefinition> retrievePlanDefinitions();
+
+	PlanDefinition retrievePlanDefinitionById(long id);
+
+	// PlanDefinition savePlanDefinition(PlanDefinition planDefinition);
+
+	PatientPlanDefinition assignPlanDefinitionToPatient(long planDefinitionId, String patientUuid);
+
+	// List<PatientPlanDefinition> retrievePlanDefinitionsAssignedToPatient(String
+	// patientUuid);
+
+	List<PatientPlanDefinitionDto> retrievePlanDefinitionsAssignedToPatient(String patientUuid);
+}

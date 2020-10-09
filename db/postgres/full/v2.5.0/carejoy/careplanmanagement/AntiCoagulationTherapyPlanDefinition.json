@@ -1,0 +1,160 @@
+{
+  "resourceType": "PlanDefinition",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>Anti Coagulation Therapy<a name='mm'/></div>"
+  },
+  "id": "cf-1557740985356",
+  "version": "1.0.0",
+  "name": "Atrial Fibrillation Plan Definition",
+  "title": "Atrial Fibrillation Plan Definition",
+  "type": {
+    "coding": [
+      {
+        "code": "order-set",
+        "system": "http://hl7.org/fhir/plan-definition-type",
+        "display": "Order Set"
+      }
+    ]
+  },
+  "status": "draft",
+  "experimental": true,
+  "date": "2019-05-13T10:02:14.965Z",
+  "publisher": "Dr. Saravanan Kuppuswamy",
+  "usage": "This Plan Definition is used to address INR levels for Warfarin Prescription",
+  "topic": [
+    {
+      "coding": [
+        {
+          "code": "treatment",
+          "system": "http://hl7.org/fhir/definition-topic",
+          "display": "Treatment"
+        }
+      ]
+    }
+  ],
+  "goal": [
+    {
+      "category": {
+        "text": "Treatment"
+      },
+      "description": {
+        "text": "Maintain INR within range 2 to 3"
+      },
+      "priority": {
+        "coding": [
+          {
+            "code": "high-priority",
+            "system": "http://hl7.org/fhir/goal-priority",
+            "display": "High Priority"
+          }
+        ]
+      },
+      "start": {
+        "text": "When Warfarin is prescribed"
+      },
+      "addresses": [
+        {
+          "coding": [
+            {
+              "code": "49436004",
+              "system": "http://snomed.info/sct",
+              "display": "Atrial fibrillation"
+            }
+          ]
+        },
+        {
+          "coding": [
+            {
+              "code": "128053003",
+              "system": "http://snomed.info/sct",
+              "display": "Deep venous thrombosis"
+            }
+          ]
+        },
+        {
+          "coding": [
+            {
+              "code": "59282003",
+              "system": "http://snomed.info/sct",
+              "display": "Pulmonary embolism"
+            }
+          ]
+        }
+      ],
+      "target": [
+        {
+          "measure": {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "34714-6",
+                "display": "INR in Blood by Coagulation assay"
+              }
+            ]
+          },
+          "detailRange": {
+            "high": {
+              "value": 3
+            },
+            "low": {
+              "value": 2
+            }
+          },
+          "due": {
+            "value": 4,
+            "unit": "d"
+          }
+        }
+      ]
+    }
+  ],
+  "action": [
+    {
+      "label": "Measure INR in 4 days",
+      "title": "Measure INR",
+      "description": "Measure INR",
+      "textEquivalent": "Measure INR",
+      "code": [
+        {
+          "coding": [
+            {
+              "code": "34714-6",
+              "system": "http://loinc.org",
+              "display": "INR in Blood by Coagulation assay"
+            }
+          ]
+        }
+      ],
+      "reason": [
+        {
+          "coding": [
+            {
+              "code": "LA17084-7",
+              "system": "http://loinc.org",
+              "display": "Atrial fibrillation"
+            }
+          ]
+        },
+        {
+          "coding": [
+            {
+              "code": "LA7468-7",
+              "system": "http://loinc.org",
+              "display": "Pulmonary embolism"
+            }
+          ]
+        },
+        {
+          "coding": [
+            {
+              "code": "58277-5",
+              "system": "http://loinc.org",
+              "display": "Deep vein thrombosis diagnosis"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+package net.breezeware.carejoy.core.entity;
+
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import com.google.gson.annotations.Expose;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * Mapping between Carejoy Patient graph entity and a Dynamo User entity.
+ */
+
+@ToString
+@Entity
+@Table(name = "core_patient_user_map", schema = "carejoy")
+public class PatientUserMap implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
+    @Expose
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen")
+    @SequenceGenerator(name = "seq_gen", sequenceName = "core_patient_user_map_seq", schema = "carejoy", allocationSize = 1)
+    @Getter
+    @Setter
+    private long id;
+
+    /**
+     * PatientUuid Uniquely identifies a Patient in the Carejoy application
+     */
+    @Column(name = "patient_uuid")
+    @Getter
+    @Setter
+    private UUID patientUuid;
+
+    // FIXME: change to one to one mapping (User)
+    /**
+     * User ID Uniquely identifies a User in the Carejoy application
+     */
+    @Column(name = "user_id")
+    @Getter
+    @Setter
+    private long userId;
+
+    /**
+     * Date Created Date on which the mapping was established between Patient and
+     * User
+     */
+    @Column(name = "created_date")
+    @Getter
+    @Setter
+    private Instant createdDate;
+}

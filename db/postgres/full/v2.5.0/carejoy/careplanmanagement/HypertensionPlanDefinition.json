@@ -1,0 +1,92 @@
+
+  {
+ "resourceType": "PlanDefinition",
+ "text": {
+   "status": "generated",
+   "div": "<div xmlns='http://www.w3.org/1999/xhtml'>Hypertension - Plan Definition<a name='mm'/></div>"
+ },
+ "id": "cf-1552287155892",
+ "identifier": [
+   {
+     "value": "TUL-PD-1",
+     "system": "TUL-PD-1"
+   }
+ ],
+ "version": "1.0.0",
+ "name": "Hypertension Plan Definition",
+ "title": "Hypertension Plan Definition",
+ "goal": [
+   {
+     "category": {
+       "coding": [
+         {
+           "code": "nursing",
+           "system": "http://hl7.org/fhir/goal-category",
+           "display": "Nursing"
+         }
+       ]
+     },
+     "description": {
+       "coding": [
+         {
+           "code": "170577003",
+           "system": "http://snomed.info/sct",
+           "display": "Good hypertension control"
+         }
+       ]
+     },
+     "priority": {
+       "coding": [
+         {
+           "code": "high-priority",
+           "system": "http://hl7.org/fhir/goal-priority",
+           "display": "High Priority"
+         }
+       ]
+     },
+     "start": {
+       "coding": [
+         {
+           "code": "442137000",
+           "system": "http://snomed.info/sct",
+           "display": "Completion time of procedure"
+         }
+       ]
+     },
+     "addresses": [
+       {
+         "coding": [
+           {
+             "code": "38341003",
+             "system": "http://snomed.info/sct",
+             "display": "Hypertension"
+           }
+         ]
+       }
+     ],
+     "target": {
+       "measure": {
+         "coding": [
+           {
+             "code": "8480-6",
+             "system": "http://loinc.org",
+             "display": "Systolic blood pressure"
+           }
+         ]
+       },
+       "detailQuantity": {
+         "value": 120,
+         "unit": "mmHg"
+       }
+     }
+   }
+ ],
+ "action": [
+   {
+     "definition": {
+       "reference": "ActivityDefinition/cf-1552286557837"
+     },
+     "label": "Reduce Salt Intake"
+   }
+ ]
+}

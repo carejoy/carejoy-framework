@@ -1,0 +1,28 @@
+package net.breezeware.carejoy.patientregistry.dao;
+
+import java.util.UUID;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
+import org.springframework.data.querydsl.binding.QuerydslBindings;
+import org.springframework.stereotype.Repository;
+
+import com.querydsl.core.types.dsl.StringPath;
+
+import net.breezeware.carejoy.patientregistry.entity.PatientUserMap;
+import net.breezeware.carejoy.patientregistry.entity.QPatientUserMap;
+
+@Repository
+public interface PatientUserMapRepository extends JpaRepository<PatientUserMap, Long>,
+        QuerydslPredicateExecutor<PatientUserMap>, QuerydslBinderCustomizer<QPatientUserMap> {
+
+    PatientUserMap findByUserId(long userId);
+
+    PatientUserMap findByPatientUuid(UUID patientUuid);
+
+    default public void customize(QuerydslBindings bindings, QPatientUserMap Group) {
+        bindings.bind(String.class).first((StringPath path, String value) -> path.containsIgnoreCase(value));
+        // bindings.excluding(Group.name);
+    }
+}

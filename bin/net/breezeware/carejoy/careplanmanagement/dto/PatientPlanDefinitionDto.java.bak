@@ -1,0 +1,45 @@
+package net.breezeware.carejoy.careplanmanagement.dto;
+
+import java.util.List;
+
+import com.google.gson.Gson;
+
+import net.breezeware.carejoy.careplanmanagement.entity.PatientPlanDefinition;
+import net.breezeware.carejoy.careplanmanagement.entity.Resource;
+
+public class PatientPlanDefinitionDto {
+
+	public static final String STATUS_ACTIVE = "active";
+	public static final String STATUS_INACTIVE = "inactive";
+
+	/**
+	 * Plan definition assigned to this patient
+	 */
+	private PatientPlanDefinition patientPlanDefinition;
+
+	/**
+	 * CarePlan Resource elements created for this PlanDefinition & Patient
+	 */
+	private List<Resource> carePlanResource;
+
+	public PatientPlanDefinition getPatientPlanDefinition() {
+		return patientPlanDefinition;
+	}
+
+	public void setPatientPlanDefinition(PatientPlanDefinition patientPlanDefinition) {
+		this.patientPlanDefinition = patientPlanDefinition;
+	}
+
+	public List<Resource> getCarePlanResource() {
+		return carePlanResource;
+	}
+
+	public void setCarePlanResource(List<Resource> carePlanResource) {
+		this.carePlanResource = carePlanResource;
+	}
+
+	@Override
+	public String toString() {
+		return new Gson().toJson(this);
+	}
+}

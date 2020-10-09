@@ -1,0 +1,8 @@
+/Users/karthik/work/brz-code/git/github/carejoy/carejoy-core/carejoy-modules/carejoy-core/src/main/java/net/breezeware/carejoy/core/service/api/PatientService.java
+/Users/karthik/work/brz-code/git/github/carejoy/carejoy-core/carejoy-modules/carejoy-core/src/main/java/net/breezeware/carejoy/core/dto/AddPatientDto.java
+/Users/karthik/work/brz-code/git/github/carejoy/carejoy-core/carejoy-modules/carejoy-core/src/main/java/net/breezeware/carejoy/core/entity/MedicalAdvice.java
+/Users/karthik/work/brz-code/git/github/carejoy/carejoy-core/carejoy-modules/carejoy-core/target/generated-sources/net/breezeware/carejoy/core/entity/QPatient.java
+/Users/karthik/work/brz-code/git/github/carejoy/carejoy-core/carejoy-modules/carejoy-core/src/main/java/net/breezeware/carejoy/core/entity/Patient.java
+/Users/karthik/work/brz-code/git/github/carejoy/carejoy-core/carejoy-modules/carejoy-core/src/main/java/net/breezeware/carejoy/core/dto/VitalDto.java
+/Users/karthik/work/brz-code/git/github/carejoy/carejoy-core/carejoy-modules/carejoy-core/src/main/java/net/breezeware/carejoy/core/service/impl/PatientServiceImpl.java
+/Users/karthik/work/brz-code/git/github/carejoy/carejoy-core/carejoy-modules/carejoy-core/src/main/java/net/breezeware/carejoy/core/dao/CorePatientRepository.java

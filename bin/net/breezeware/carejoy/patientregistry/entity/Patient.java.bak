@@ -1,0 +1,352 @@
+package net.breezeware.carejoy.patientregistry.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.google.gson.Gson;
+import com.google.gson.annotations.Expose;
+
+@XmlRootElement
+@Entity
+@Table(name = "pr_patient", schema = "carejoy")
+public class Patient implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
+    public static final String ROLE_PATIENT = "PATIENT";
+
+    @Expose
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen")
+    @SequenceGenerator(name = "seq_gen", sequenceName = "pr_patient_seq", schema = "carejoy", allocationSize = 1)
+    private long id;
+
+    /**
+     * UUID assigned by the Carejoy application. It will be used to identify the
+     * patient across different systems in Carejoy like graph DB and view DB
+     * (relational DB).
+     */
+    @Column(name = "carejoy_uuid")
+    private String carejoyUuid;
+
+    /**
+     * Dynamo/Carejoy organization to which this patient belongs to.
+     */
+    @Column(name = "organization_id")
+    private long organizationId;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "middle_initial")
+    private String middleInitial;
+
+    @Column(name = "full_name")
+    private String fullName;
+
+    @Column(name = "home_phone")
+    private String homePhone;
+
+    @Column(name = "work_phone")
+    private String workPhone;
+
+    @Column(name = "mobile_phone")
+    private String mobilePhone;
+
+    private String gender;
+
+    private int age;
+
+    private String dob;
+
+    private String race;
+
+    private String ethnicity;
+
+    private boolean deceased;
+
+    private String ssn;
+
+    private String address1;
+
+    private String address2;
+
+    private String city;
+
+    private String state;
+
+    private String country;
+
+    @Column(name = "external_patient_id")
+    private String externalPatientId;
+
+    @Column(name = "external_patient_source")
+    private String externalPatientSource;
+
+    @Transient
+    private double weight;
+
+    @Transient
+    private String bloodPressure;
+
+    @Transient
+    private int bloodGlucose;
+
+    @Transient
+    private int heartRate;
+
+    @Column(name = "zip_code")
+    private String zipcode;
+
+    public String getCarejoyUuid() {
+        return carejoyUuid;
+    }
+
+    public void setCarejoyUuid(String carejoyUuid) {
+        this.carejoyUuid = carejoyUuid;
+    }
+
+    public long getOrganizationId() {
+        return organizationId;
+    }
+
+    public void setOrganizationId(long organizationId) {
+        this.organizationId = organizationId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getMiddleInitial() {
+        return middleInitial;
+    }
+
+    public void setMiddleInitial(String middleInitial) {
+        this.middleInitial = middleInitial;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+
+    public String getWorkPhone() {
+        return workPhone;
+    }
+
+    public void setWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    public String getEthnicity() {
+        return ethnicity;
+    }
+
+    public void setEthnicity(String ethnicity) {
+        this.ethnicity = ethnicity;
+    }
+
+    public boolean isDeceased() {
+        return deceased;
+    }
+
+    public void setDeceased(boolean deceased) {
+        this.deceased = deceased;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public String getBloodPressure() {
+        return bloodPressure;
+    }
+
+    public void setBloodPressure(String bloodPressure) {
+        this.bloodPressure = bloodPressure;
+    }
+
+    public int getBloodGlucose() {
+        return bloodGlucose;
+    }
+
+    public void setBloodGlucose(int bloodGlucose) {
+        this.bloodGlucose = bloodGlucose;
+    }
+
+    public int getHeartRate() {
+        return heartRate;
+    }
+
+    public void setHeartRate(int heartRate) {
+        this.heartRate = heartRate;
+    }
+
+    public String getExternalPatientId() {
+        return externalPatientId;
+    }
+
+    public void setExternalPatientId(String externalPatientId) {
+        this.externalPatientId = externalPatientId;
+    }
+
+    public String getExternalPatientSource() {
+        return externalPatientSource;
+    }
+
+    public void setExternalPatientSource(String externalPatientSource) {
+        this.externalPatientSource = externalPatientSource;
+    }
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
+}
