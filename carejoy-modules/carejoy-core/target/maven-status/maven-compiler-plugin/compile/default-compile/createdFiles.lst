@@ -1,8 +1,0 @@
-net/breezeware/carejoy/core/dto/AddPatientDto.class
-net/breezeware/carejoy/core/service/api/PatientService.class
-net/breezeware/carejoy/core/service/impl/PatientServiceImpl.class
-net/breezeware/carejoy/core/entity/QPatient.class
-net/breezeware/carejoy/core/entity/Patient.class
-net/breezeware/carejoy/core/dto/VitalDto.class
-net/breezeware/carejoy/core/dao/CorePatientRepository.class
-net/breezeware/carejoy/core/entity/MedicalAdvice.class
